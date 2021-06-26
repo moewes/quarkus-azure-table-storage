@@ -1,0 +1,4 @@
+# Project exclude paths
+/deployment/target/
+/runtime/target/
+/target/
