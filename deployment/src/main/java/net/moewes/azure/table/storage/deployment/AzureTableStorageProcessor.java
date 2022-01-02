@@ -37,6 +37,12 @@ class AzureTableStorageProcessor {
     }
 
     @BuildStep
+    UnremovableBeanBuildItem unremovable() {
+
+        return UnremovableBeanBuildItem.beanTypes(TableStorage.class);
+    }
+
+    @BuildStep
     void findRepositories(CombinedIndexBuildItem indexBuildItem,
                           BuildProducer<GeneratedBeanBuildItem> implementationsProducer,
                           BuildProducer<UnremovableBeanBuildItem> unremovableBeansProducer) {
