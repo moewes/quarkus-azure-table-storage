@@ -5,7 +5,6 @@ import java.lang.reflect.Type;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 import javax.enterprise.inject.spi.CDI;
 
@@ -26,14 +25,11 @@ public class GenericDao<T extends TableEntity> implements Dao<T> {
 
     public GenericDao() {
         super();
-        Logger.getLogger("GenericDao").info(getClass().getSimpleName());
         Class<? extends GenericDao> aClass = getClass();
         while (!(aClass.getGenericSuperclass() instanceof ParameterizedType)) {
             aClass = (Class<? extends GenericDao>) aClass.getSuperclass();
-            Logger.getLogger("GenericDao").info(aClass.getSimpleName());
         }
         Type t = aClass.getGenericSuperclass();
-        Logger.getLogger("GenericDao").info(t.getTypeName());
         ParameterizedType pt = (ParameterizedType) t;
         type = (Class) pt.getActualTypeArguments()[0];
         tableStorage = CDI.current().select(TableStorage.class).get();
