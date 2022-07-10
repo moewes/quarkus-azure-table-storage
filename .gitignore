@@ -2,5 +2,6 @@
 /deployment/target/
 /runtime/target/
 /target/
+*/target/
 *.iml
 /.idea/
