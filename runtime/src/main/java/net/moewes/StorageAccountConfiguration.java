@@ -18,4 +18,10 @@ public class StorageAccountConfiguration {
      */
     @ConfigItem()
     String accountKey;
+
+    /**
+     * use local azurite tool for testing
+     */
+    @ConfigItem()
+    boolean useAzurite;
 }

@@ -18,6 +18,8 @@ public class TableStorage {
     String accountName;
     @ConfigProperty(name = "quarkus.storage-account.account-key")
     String accountKey;
+    @ConfigProperty(name = "quarkus.storage-account.use-azurite")
+    boolean devMode;
 
     private CloudTableClient tableClient;
 
@@ -40,9 +42,13 @@ public class TableStorage {
     }
 
     private String storageConnectionString() {
-        return
-                "DefaultEndpointsProtocol=https;" +
-                        "AccountName=" + accountName + ";" +
-                        "AccountKey=" + accountKey;
+
+        if (devMode) {
+            return "UseDevelopmentStorage=true";
+        } else {
+            return "DefaultEndpointsProtocol=https;" +
+                    "AccountName=" + accountName + ";" +
+                    "AccountKey=" + accountKey;
+        }
     }
 }

@@ -13,9 +13,9 @@ public class AzureTableStorageResourceTest {
     @Test
     public void testHelloEndpoint() {
         given()
-                .when().get("/azure-table-storage")
+                .when().get("/tablestorage")
                 .then()
                 .statusCode(200)
-                .body(is("Hello azure-table-storage"));
+                .body(is("OK"));
     }
 }

@@ -16,17 +16,42 @@
 */
 package net.moewes.azure.table.storage.it;
 
+import com.microsoft.azure.storage.StorageException;
+import net.moewes.TableStorage;
+
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import java.net.URISyntaxException;
+import java.util.UUID;
 
-@Path("/azure-table-storage")
+@Path("/")
 @ApplicationScoped
 public class AzureTableStorageResource {
     // add some rest methods here
 
+    @Inject
+    TableStorage tableStorage;
+
+    String tableName = "X" + UUID.randomUUID().toString().replace('-','X');
+
     @GET
+    @Path("/azure-table-storage")
     public String hello() {
         return "Hello azure-table-storage";
+    }
+
+
+    @Path("/tablestorage")
+    @GET
+    public String getTableStorage() {
+
+        try {
+            tableStorage.getCloudTable(tableName);
+        } catch (StorageException | URISyntaxException e) {
+            return e.getMessage();
+        }
+        return "OK";
     }
 }
