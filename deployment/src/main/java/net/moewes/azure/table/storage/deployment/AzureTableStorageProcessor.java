@@ -1,7 +1,5 @@
 package net.moewes.azure.table.storage.deployment;
 
-import javax.enterprise.context.ApplicationScoped;
-
 import com.microsoft.azure.storage.table.TableServiceEntity;
 import io.quarkus.arc.deployment.AdditionalBeanBuildItem;
 import io.quarkus.arc.deployment.GeneratedBeanBuildItem;
@@ -14,6 +12,7 @@ import io.quarkus.deployment.builditem.FeatureBuildItem;
 import io.quarkus.gizmo.ClassCreator;
 import io.quarkus.gizmo.ClassOutput;
 import io.quarkus.runtime.util.HashUtil;
+import jakarta.enterprise.context.ApplicationScoped;
 import net.moewes.GenericDao;
 import net.moewes.TableStorage;
 import org.jboss.jandex.ClassInfo;
@@ -23,8 +22,9 @@ import org.jboss.jandex.IndexView;
 class AzureTableStorageProcessor {
 
     private static final String FEATURE = "azure-table-storage";
-    
-    private static final DotName TABLE_SERVICE_ENTITY = DotName.createSimple(TableServiceEntity.class.getName());
+
+    private static final DotName TABLE_SERVICE_ENTITY =
+            DotName.createSimple(TableServiceEntity.class.getName());
 
     @BuildStep
     FeatureBuildItem feature() {

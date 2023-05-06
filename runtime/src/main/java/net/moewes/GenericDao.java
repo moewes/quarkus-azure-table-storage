@@ -1,19 +1,14 @@
 package net.moewes;
 
+import com.microsoft.azure.storage.StorageException;
+import com.microsoft.azure.storage.table.*;
+import jakarta.enterprise.inject.spi.CDI;
+
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.enterprise.inject.spi.CDI;
-
-import com.microsoft.azure.storage.StorageException;
-import com.microsoft.azure.storage.table.CloudTable;
-import com.microsoft.azure.storage.table.TableEntity;
-import com.microsoft.azure.storage.table.TableOperation;
-import com.microsoft.azure.storage.table.TableQuery;
-import com.microsoft.azure.storage.table.TableResult;
 
 public class GenericDao<T extends TableEntity> implements Dao<T> {
 
@@ -65,7 +60,8 @@ public class GenericDao<T extends TableEntity> implements Dao<T> {
     @Override
     public T get(String partitionKey, String rowKey) throws URISyntaxException, StorageException {
         CloudTable cloudTable = tableStorage.getCloudTable(tableName);
-        TableResult result = cloudTable.execute(TableOperation.retrieve(partitionKey, rowKey, type));
+        TableResult result =
+                cloudTable.execute(TableOperation.retrieve(partitionKey, rowKey, type));
         return result.getResultAsType();
     }
 
