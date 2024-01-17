@@ -6,7 +6,7 @@
     <parent>
         <groupId>net.moewes</groupId>
         <artifactId>azure-table-storage-parent</artifactId>
-        <version>0.2.4</version>
+        <version>0.2.5-SNAPSHOT</version>
     </parent>
     <artifactId>azure-table-storage</artifactId>
     <name>Azure Table Storage - Runtime</name>
