@@ -30,7 +30,7 @@
         <repository>
             <id>github</id>
             <name>GitHub Packages</name>
-            <url>https://maven.pkg.github.com/moewes/azure-table-storage</url>
+            <url>https://maven.pkg.github.com/moewes/quarkus-azure-table-storage</url>
         </repository>
     </distributionManagement>
 
