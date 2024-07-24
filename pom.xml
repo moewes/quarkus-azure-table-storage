@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>net.moewes</groupId>
     <artifactId>azure-table-storage-parent</artifactId>
-    <version>0.3.4-SNAPSHOT</version>
+    <version>0.3.4</version>
     <packaging>pom</packaging>
     <name>Azure Table Storage - Parent</name>
     <modules>
@@ -15,22 +15,22 @@
     </modules>
     <properties>
         <compiler-plugin.version>3.8.1</compiler-plugin.version>
-        <failsafe-plugin.version>3.2.5</failsafe-plugin.version>
+        <failsafe-plugin.version>3.3.1</failsafe-plugin.version>
         <maven.compiler.parameters>true</maven.compiler.parameters>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8
         </project.reporting.outputEncoding>
-        <quarkus.version>3.9.3</quarkus.version>
-        <surefire-plugin.version>3.2.5</surefire-plugin.version>
+        <quarkus.version>3.13.0</quarkus.version>
+        <surefire-plugin.version>3.3.1</surefire-plugin.version>
     </properties>
 
     <distributionManagement>
         <repository>
             <id>github</id>
             <name>GitHub Packages</name>
-            <url>https://maven.pkg.github.com/moewes/azure-table-storage</url>
+            <url>https://maven.pkg.github.com/moewes/quarkus-azure-table-storage</url>
         </repository>
     </distributionManagement>
 
